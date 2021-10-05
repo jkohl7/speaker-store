@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="frags :: head"></head>
+<body>
+<header th:replace="frags :: logo"></header>
+
+<div class="content">
+<div th:each="sq : ${speakerList}" class="speaker-entry">
+    <p class="brand" th:text="${sq.brand}">BRAND</p>
+    <p class="store" th:text="${sq.habitat}">STORE</p>
+    <img th:src="@{/img/sm/{file}(file=${sq.imageFileName})}">
+    <br/>
+    <button th:onclick="|document.location='@{/report(id=${sq.id})}'|">I Bought One!</button>
+    <br/>
+    <button th:onclick="|document.location='@{/sales(id=${sq.id})}'|">Recent Sales</button>
+</div>
+</div>
+
+</body>
+</html>
